@@ -10,23 +10,20 @@ public class Salvar {
      */
     public void teste(char matriz[][]) throws IOException {
         Scanner ler = new Scanner(System.in);
-        int i, n;
+        int i;
 
         System.out.printf("Informe o número para a tabuada:\n");
-        n = ler.nextInt();
+        //n = ler.nextInt();
 
         FileWriter arq = new FileWriter("tabuada.txt");
         PrintWriter gravarArq = new PrintWriter(arq);
+        for (i=0; i<1024; i++) {
+            for (int j = 0; j < 32; j++) {
+                gravarArq.printf("%c", matriz[i][j]);
+            }
 
-        gravarArq.printf("+--Resultado--+%n");
-        for (i=0; i<10; i++) {
-            gravarArq.printf("%c\n", matriz[i][1]) ;
-            gravarArq.printf("| %2d X %d = %2d |%n", i, n, (i*n));
+            gravarArq.printf("\n");
         }
-        gravarArq.printf("+-------------+%n");
-
         arq.close();
-
-        //System.out.printf("\nTabuada do %d foi gravada com sucesso em \"d:\\tabuada.txt\".\n", n);
     }
 }
